@@ -35,7 +35,12 @@ export default function SignInWithGoogleButton() {
     }
   };
   return (
-    <Button disabled={loading} onClick={handleGoogleLogin} variant="secondary">
+    <Button
+      className="font-sans"
+      disabled={loading}
+      onClick={handleGoogleLogin}
+      variant="default"
+    >
       Sign in with Google
     </Button>
   );
