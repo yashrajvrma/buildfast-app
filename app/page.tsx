@@ -1,7 +1,23 @@
-import { auth } from "@/lib/auth/auth-server";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
+import { Navbar } from "@/components/navbar";
+import { Hero } from "@/components/hero";
+import { Features } from "@/components/features";
+import { Testimonials } from "@/components/testimonials";
+import { Stats } from "@/components/stats";
+import { CTA } from "@/components/cta";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
-  return <div></div>;
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <Stats />
+        <Testimonials />
+        <CTA />
+      </main>
+      <Footer />
+    </div>
+  );
 }
