@@ -7,6 +7,9 @@ import { Star, Gift } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import HeroImg from "@/public/assets/images/hero.png";
 import Image from "next/image";
+import avatar1 from "@/public/assets/images/avatars1.webp";
+import avatar2 from "@/public/assets/images/avatars2.png";
+import avatar3 from "@/public/assets/images/avatars3.webp";
 
 export function Hero() {
   return (
@@ -63,54 +66,43 @@ export function Hero() {
               </Button>
 
               <div className="flex flex-col sm:flex-row items-center pt-3 gap-x-4">
-                <div className="flex -space-x-2">
+                <div className="flex -space-x-1">
                   <Avatar className="ring-2 ring-background">
                     <AvatarImage
-                      src="https://github.com/shadcn.png"
-                      alt="User 1"
+                      src="https://i.postimg.cc/t422fpx2/john_result.webp"
+                      alt="user 1"
                     />
                     <AvatarFallback>U1</AvatarFallback>
                   </Avatar>
                   <Avatar className="ring-2 ring-background">
                     <AvatarImage
-                      src="https://github.com/maxleiter.png"
+                      src="https://i.postimg.cc/85VJmrz9/44.webp"
                       alt="User 2"
                     />
                     <AvatarFallback>U2</AvatarFallback>
                   </Avatar>
                   <Avatar className="ring-2 ring-background">
                     <AvatarImage
-                      src="https://github.com/evilrabbit.png"
+                      src="https://i.postimg.cc/DZ5DPLcC/avatars3.webp"
                       alt="User 3"
                     />
                     <AvatarFallback>U3</AvatarFallback>
                   </Avatar>
-                  <Avatar className="ring-2 ring-background">
-                    <AvatarImage
-                      src="https://github.com/vercel.png"
-                      alt="User 4"
-                    />
-                    <AvatarFallback>U4</AvatarFallback>
-                  </Avatar>
-                  <Avatar className="ring-2 ring-background">
-                    <AvatarImage
-                      src="https://github.com/nextjs.png"
-                      alt="User 5"
-                    />
-                    <AvatarFallback>U5</AvatarFallback>
-                  </Avatar>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="flex">
+                  {/* <div className="flex">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star
                         key={i}
                         className="w-4 h-4 fill-primary text-primary"
                       />
                     ))}
-                  </div>
-                  <span className="text-base font-medium">
-                    7686 makers ship faster
+                  </div> */}
+                  <span className="text-lg font-medium">
+                    60+{" "}
+                    <span className="text-muted-foreground">
+                      bought it already
+                    </span>
                   </span>
                 </div>
               </div>
