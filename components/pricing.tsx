@@ -165,12 +165,12 @@ export function PricingSection() {
                           >
                             {feature.included ? (
                               feature.isPremium ? (
-                                <Star className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                                <Star className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                               ) : (
-                                <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                                <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                               )
                             ) : (
-                              <div className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                              <div className="h-5 w-5 shrink-0 mt-0.5" />
                             )}
                             <span
                               className={feature.included ? "" : "line-through"}

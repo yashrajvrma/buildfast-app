@@ -7,6 +7,7 @@ import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
 import { PricingSection } from "@/components/pricing";
 import { FAQSection } from "@/components/faq-section";
+import { FeaturesTab } from "@/components/features-tab-section";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Features />
         <Stats />
+        <FeaturesTab />
         <PricingSection />
         <FAQSection />
         <Testimonials />

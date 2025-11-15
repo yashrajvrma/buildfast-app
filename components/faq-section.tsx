@@ -66,7 +66,7 @@ export function FAQSection() {
 
   return (
     <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-background">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left side - Header */}
           <div className="flex flex-col justify-start lg:items-start items-center text-center lg:text-left">
