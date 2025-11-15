@@ -62,7 +62,7 @@ export function Hero() {
                 Get BuildFast
               </Button>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center pt-3 gap-x-4">
                 <div className="flex -space-x-2">
                   <Avatar className="ring-2 ring-background">
                     <AvatarImage
@@ -121,7 +121,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative w-full max-w-6xl mt-12"
+            className="relative w-full sm:max-w-7xl mt-8"
           >
             <Image
               src={HeroImg}

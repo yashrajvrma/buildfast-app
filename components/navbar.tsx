@@ -18,7 +18,7 @@ export function Navbar() {
       transition={{ duration: 0.5 }}
       className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/70 backdrop-blur-lg"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:max-w-6xl w-full">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
             <Image
