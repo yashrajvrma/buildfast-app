@@ -168,7 +168,7 @@ export function FeaturesTab() {
   return (
     <section
       id="example"
-      className="flex justify-center w-full py-28 px-4 lg:px-8 bg-background"
+      className="flex justify-center w-full py-10 px-4 lg:px-8 bg-background"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}

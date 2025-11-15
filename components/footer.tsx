@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="text-primary-foreground sm:p-10 p-5 text-lg">
+    <footer className="text-primary-foreground sm:p-10 pt-20 p-5 text-lg">
       <div className="flex flex-col gap-y-10 max-w-7xl mx-auto bg-primary sm:rounded-4xl rounded-3xl sm:px-10 px-5 pt-10">
         {/* Main Content Grid */}
         <div className="flex sm:flex-row flex-col justify-between gap-8 md:gap-16 sm:mb-12 mb-0">

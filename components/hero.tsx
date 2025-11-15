@@ -23,7 +23,7 @@ export function Hero() {
             className="space-y-8 w-full sm:max-w-6xl"
           >
             <div className="space-y-4 text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight sm:max-w-4xl mx-auto">
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight sm:max-w-4xl mx-auto">
                 Build your startup{" "}
                 <span className="relative inline-block pt-3">
                   in days,{" "}
@@ -65,7 +65,7 @@ export function Hero() {
                 Get BuildFast
               </Button>
 
-              <div className="flex flex-col sm:flex-row items-center pt-3 gap-x-4">
+              <div className="flex flex-col sm:flex-row items-center sm:pt-5 gap-x-4">
                 <div className="flex -space-x-1">
                   <Avatar className="ring-2 ring-background">
                     <AvatarImage
@@ -113,7 +113,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative w-full sm:max-w-7xl mt-8"
+            className="relative w-full sm:max-w-7xl hidden sm:flex mt-8"
           >
             <Image
               src={HeroImg}

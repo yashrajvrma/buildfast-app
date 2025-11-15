@@ -14,18 +14,15 @@ const FAQ_ITEMS: FAQItem[] = [
     question: "What do I get exactly?",
     answer: [
       "The Next.js starter with all the boilerplate code you need to run an online business: a payment system, a database, login, a blog, UI components, and much more.",
-      "The repo is available in:",
-      "• Javascript and Typescript",
-      "• /app router and /pages router",
+
       "The documentation helps you set up your app from scratch, write copy that sells, and ship fast.",
-      "With the Premium plan, access to our Discord with 5,000+ makers, the Leaderboards to showcase your startup, and $1,210 worth of unique discounts.",
     ],
   },
   {
     question: "Does BuildFast work with AI (Cursor, Copilot)?",
     answer: [
       "It does not only work with AI, it's built for it.",
-      "BuildFast comes with a complete codebase—which gives your AI code editor real context to build full features in seconds.",
+      "BuildFast comes with a complete codebase which gives your AI code editor real context to build full features in seconds.",
       "You can just ask your AI to build the feature you need, and it will generate the code for you, using the naming convention, file structure, and best practices you're used to.",
     ],
   },
@@ -33,7 +30,7 @@ const FAQ_ITEMS: FAQItem[] = [
     question: "My tech stack is different, can I still use it?",
     answer: [
       "Yes, as long as you're comfortable with React & Next.js.",
-      "Libraries are independent. You can use SendGrid instead of Mailgun, LemonSqueezy instead of Stripe, or Postgres instead of MongoDB, for instance.",
+      "Libraries are independent. You can use SendGrid instead of Resend, LemonSqueezy instead of Stripe, or MongoDB instead of Postgres, for instance.",
     ],
   },
   {
@@ -46,13 +43,13 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Are there any other costs associated?",
     answer: [
-      "Many hosting platforms, like Vercel, let you host a project for free (front-end + back-end) and MongoDB/Supabase have free tiers — so you can launch your first app for $0/month.",
+      "Many hosting platforms, like Vercel, let you host a project for free (front-end + back-end) and Postgres/Supabase have free tiers so you can launch your first app for $0/month.",
     ],
   },
   {
     question: "Can I get a refund?",
     answer: [
-      "No, it's a digital product so no refund will be provided once you get access.",
+      "No, it's a digital product so refund won't be provided once you get access.",
     ],
   },
 ];
@@ -67,7 +64,7 @@ export function FAQSection() {
   return (
     <section
       id="faq"
-      className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-background"
+      className="w-full py-10 px-4 sm:px-6 lg:px-8 bg-background"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
