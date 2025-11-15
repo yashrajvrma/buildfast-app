@@ -29,17 +29,17 @@ export function Hero() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.3, duration: 0.5 }}
-                      className="absolute inset-0 bg-accent -rotate-2"
+                      className="absolute inset-0 bg-foreground -rotate-2"
                       style={{ transformOrigin: "center" }}
                     />
-                    <span className="relative inline-block px-3 py-1">
+                    <span className="relative inline-block px-3 py-1 text-background">
                       not weeks
                     </span>
                   </span>
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto pt-3">
+              <p className="text-base sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto pt-3 font-medium">
                 The NextJS boilerplate with all you need to build your SaaS, AI
                 tool, or any other web app and make your first $ online fast.
               </p>
@@ -48,7 +48,7 @@ export function Hero() {
             <div className="flex flex-col items-center gap-6 w-full">
               <Button
                 size="default"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground text-base w-auto px-8"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground text-base"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

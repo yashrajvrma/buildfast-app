@@ -184,7 +184,7 @@ export function FeaturesTab() {
             provides you with the boilerplate code you need to launch, FAST.
           </p>
         </div>
-    
+
         {/* Icon Tabs */}
         <div className="mb-16">
           <div className="flex flex-wrap gap-8 md:gap-12 justify-start md:justify-start">
@@ -228,7 +228,7 @@ export function FeaturesTab() {
           </div>
 
           {/* Integrations */}
-          <div className="flex gap-6 items-center flex-wrap pt-4 border-t border-border">
+          <div className="flex gap-3 items-center flex-wrap pt-4 border-t border-border">
             <span className="text-base text-muted-foreground">with</span>
             {current.integrations.map((integration: any, index: any) => (
               <div key={index} className="flex gap-2 items-center">
