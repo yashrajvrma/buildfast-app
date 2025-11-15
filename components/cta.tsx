@@ -45,7 +45,7 @@ export function CTA() {
               Get BuildFast Now
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <div className="text-sm text-muted-foreground">
+            <div className="text-base text-muted-foreground">
               <span className="text-primary font-semibold">$100 off</span> -
               Limited time offer
             </div>
@@ -56,7 +56,7 @@ export function CTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="flex items-center justify-center gap-6 text-sm text-muted-foreground pt-4"
+            className="flex items-center justify-center gap-6 text-base text-muted-foreground pt-4"
           >
             <div className="flex items-center gap-2">
               <svg

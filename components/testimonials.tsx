@@ -73,7 +73,7 @@ export function Testimonials() {
               <Card className="p-6 h-full flex flex-col bg-card">
                 {index === 0 && (
                   <Card className="p-4 mb-4 bg-accent">
-                    <div className="text-sm text-muted-foreground mb-1">
+                    <div className="text-base text-muted-foreground mb-1">
                       {testimonial.revenue}
                     </div>
                     <div className="text-2xl font-bold mb-1">
@@ -108,7 +108,7 @@ export function Testimonials() {
                   />
                   <div>
                     <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-base text-muted-foreground">
                       {testimonial.role}
                     </div>
                   </div>
@@ -125,7 +125,7 @@ export function Testimonials() {
           transition={{ delay: 0.3 }}
           className="text-center"
         >
-          <p className="text-sm text-muted-foreground mb-6">Featured on</p>
+          <p className="text-base text-muted-foreground mb-6">Featured on</p>
           <div className="flex flex-wrap justify-center items-center gap-8">
             {logos.map((logo, index) => (
               <motion.div

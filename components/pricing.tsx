@@ -129,11 +129,11 @@ export function PricingSection() {
                     <span className="text-5xl font-bold text-foreground">
                       ${plan.price}
                     </span>
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-base text-muted-foreground">
                       One Time Payment
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-muted-foreground">
                     {plan.description}
                   </p>
                 </div>
@@ -150,14 +150,14 @@ export function PricingSection() {
                 <div className="space-y-6 flex-1">
                   {Object.entries(plan.features).map(([category, features]) => (
                     <div key={category}>
-                      <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide text-muted-foreground">
+                      <h4 className="text-base font-semibold mb-3 uppercase tracking-wide text-muted-foreground">
                         {category}
                       </h4>
                       <ul className="space-y-3">
                         {features.map((feature) => (
                           <li
                             key={feature.name}
-                            className={`flex items-start gap-3 text-sm ${
+                            className={`flex items-start gap-3 text-base ${
                               feature.included
                                 ? "text-foreground"
                                 : "text-muted-foreground/50"

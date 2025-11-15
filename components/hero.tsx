@@ -109,7 +109,7 @@ export function Hero() {
                       />
                     ))}
                   </div>
-                  <span className="text-sm font-medium">
+                  <span className="text-base font-medium">
                     7686 makers ship faster
                   </span>
                 </div>

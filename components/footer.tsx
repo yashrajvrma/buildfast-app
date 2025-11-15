@@ -64,7 +64,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-base"
                   >
                     {link.label}
                   </Link>
@@ -80,7 +80,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-base"
                   >
                     {link.label}
                   </Link>
@@ -96,7 +96,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-base"
                   >
                     {link.label}
                   </Link>
@@ -107,19 +107,19 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-base text-muted-foreground">
             © {new Date().getFullYear()} BuildFast. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link
               href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-base text-muted-foreground hover:text-foreground transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-base text-muted-foreground hover:text-foreground transition-colors"
             >
               Terms of Service
             </Link>
