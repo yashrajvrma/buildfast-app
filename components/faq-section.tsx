@@ -58,14 +58,17 @@ const FAQ_ITEMS: FAQItem[] = [
 ];
 
 export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-background">
+    <section
+      id="faq"
+      className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-background"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left side - Header */}

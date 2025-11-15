@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Zap, Shield, Rocket, Code, Palette, Database } from "lucide-react";
 
-export function Features() {
+export function Packages() {
   const features = [
     {
       icon: Zap,
@@ -39,7 +39,7 @@ export function Features() {
   ];
 
   return (
-    <section className="py-24 px-4 bg-muted/30">
+    <section id="example" className="py-24 px-4 bg-muted/30">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

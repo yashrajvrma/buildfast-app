@@ -166,7 +166,10 @@ export function FeaturesTab() {
   const current = features[activeFeature];
 
   return (
-    <section className="flex justify-center w-full py-20 px-4 lg:px-8 bg-background">
+    <section
+      id="features"
+      className="flex justify-center w-full py-28 px-4 lg:px-8 bg-background"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-10">
@@ -181,7 +184,7 @@ export function FeaturesTab() {
             provides you with the boilerplate code you need to launch, FAST.
           </p>
         </div>
-
+    
         {/* Icon Tabs */}
         <div className="mb-16">
           <div className="flex flex-wrap gap-8 md:gap-12 justify-start md:justify-start">

@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
-import { Features } from "@/components/features";
 import { Testimonials } from "@/components/testimonials";
 import { Stats } from "@/components/stats";
 import { CTA } from "@/components/cta";
@@ -8,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { PricingSection } from "@/components/pricing";
 import { FAQSection } from "@/components/faq-section";
 import { FeaturesTab } from "@/components/features-tab-section";
+import { Packages } from "@/components/packages";
 
 export default function Home() {
   return (
@@ -15,13 +15,13 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Features />
+        <Packages />
         <Stats />
         <FeaturesTab />
         <PricingSection />
         <FAQSection />
-        <Testimonials />
-        <CTA />
+        {/* <Testimonials /> */}
+        {/* <CTA /> */}
       </main>
       <Footer />
     </div>

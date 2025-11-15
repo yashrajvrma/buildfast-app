@@ -31,28 +31,41 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-8">
             <Link
+              href="#features"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Features
+            </Link>
+
+            <Link
+              href="#example"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Example
+            </Link>
+            <Link
               href="#pricing"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Pricing
             </Link>
             <Link
-              href="#demo"
+              href="#faq"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Demo
+              FAQ
             </Link>
-            <Link
+            {/* <Link
               href="#testimonials"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Wall of love
-            </Link>
+            </Link> */}
           </div>
 
           <div className="hidden md:block">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Get BuildFast
+              Start Building
             </Button>
           </div>
 

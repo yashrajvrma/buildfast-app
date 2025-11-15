@@ -85,7 +85,10 @@ const PRICING_PLANS: PricingPlan[] = [
 
 export function PricingSection() {
   return (
-    <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-background">
+    <section
+      id="pricing"
+      className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-background"
+    >
       <div className="mx-auto sm:max-w-4xl">
         {/* Header */}
         <div className="text-center mb-16">

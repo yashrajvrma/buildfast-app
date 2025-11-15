@@ -28,7 +28,7 @@ export function Stats() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Card className="max-w-2xl mx-auto p-8 bg-gradient-to-br from-primary/10 via-accent/10 to-muted">
+          <Card className="max-w-2xl mx-auto p-8 bg-linear-to-br from-primary/10 via-accent/10 to-muted">
             <div className="space-y-3 text-center">
               <div className="text-muted-foreground">
                 <span className="text-primary font-semibold">4 hrs</span> to set
