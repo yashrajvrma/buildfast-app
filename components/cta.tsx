@@ -13,7 +13,7 @@ export function CTA() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto text-center space-y-8 bg-gradient-to-br from-primary/10 via-accent/20 to-muted rounded-3xl p-12 border border-border"
+          className="max-w-4xl mx-auto text-center space-y-8 bg-linear-to-br from-primary/10 via-accent/20 to-muted rounded-3xl p-12 border border-border"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -2,16 +2,30 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import { Star, Gift } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import HeroImg from "@/public/assets/images/hero.png";
 import Image from "next/image";
-import avatar1 from "@/public/assets/images/avatars1.webp";
-import avatar2 from "@/public/assets/images/avatars2.png";
-import avatar3 from "@/public/assets/images/avatars3.webp";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export function Hero() {
+  const router = useRouter();
+
+  const handleGetBuildfast = async () => {
+    console.log("start payment");
+    try {
+      const response = await axios.post("/api/create-checkout-session", {
+        productId: "pdt_K3bWcsDFPJEmsR3gIAHAS",
+      });
+      if (response.data) {
+        console.log("data is", JSON.stringify(response.data));
+        const url = response.data.checkoutUrl;
+        router.push(url);
+      }
+    } catch (error) {
+      console.error("Some error occured", error);
+    }
+  };
   return (
     <section className="pt-40 pb-16 px-4 relative overflow-hidden">
       <div className="container mx-auto sm:max-w-7xl">
@@ -52,6 +66,7 @@ export function Hero() {
               <Button
                 size="default"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground text-base"
+                onClick={handleGetBuildfast}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

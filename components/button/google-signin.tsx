@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { signIn } from "@/lib/auth/auth-client";
+import { authClient } from "@/lib/auth/auth-client";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -12,7 +12,7 @@ export default function SignInWithGoogleButton() {
     try {
       setLoading(!loading);
 
-      await signIn.social({
+      await authClient.signIn.social({
         provider: "google",
         callbackURL: "/", // redirect url after the user signs in
         errorCallbackURL: "/error",
