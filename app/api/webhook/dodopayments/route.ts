@@ -1,8 +1,11 @@
 import { prisma } from "@/db";
 import { NextRequest, NextResponse } from "next/server";
 import { Webhook } from "standardwebhooks";
+import { Resend } from "resend";
 
 const webhookSecret = process.env.DODO_PAYMENTS_WEBHOOK_SECRET;
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
@@ -328,26 +331,25 @@ async function sendPaymentSuccessEmail(data: {
 }) {
   try {
     // TODO: Implement your email sending logic here
-    // Example with Resend, SendGrid, or any email service:
 
-    /*
     await resend.emails.send({
-      from: 'noreply@yourdomain.com',
-      to: data.email,
-      subject: 'Payment Successful - Order Confirmation',
+      from: "Buildfast <support@buildfast.shop>",
+      to: [`${data.email}`],
+      subject: "Payment Successful - Order Confirmation",
       html: `
         <h1>Thank you for your purchase, ${data.name}!</h1>
         <p>Your payment has been processed successfully.</p>
         <h2>Order Details:</h2>
         <ul>
           <li><strong>Product:</strong> ${data.productName}</li>
-          <li><strong>Amount:</strong> ${data.currency} ${(data.amount / 100).toFixed(2)}</li>
+          <li><strong>Amount:</strong> ${data.currency} ${(
+        data.amount / 100
+      ).toFixed(2)}</li>
           <li><strong>Payment ID:</strong> ${data.paymentId}</li>
         </ul>
         <p>If you have any questions, please contact our support team.</p>
       `,
     });
-    */
 
     console.log("Success email sent to:", data.email);
   } catch (error) {

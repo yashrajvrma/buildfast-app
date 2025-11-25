@@ -66,7 +66,7 @@ export function Hero() {
               <Button
                 size="default"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground text-base"
-                // onClick={handleGetBuildfast}
+                onClick={handleGetBuildfast}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
