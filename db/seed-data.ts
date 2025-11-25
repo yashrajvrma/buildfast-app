@@ -1,16 +1,4 @@
-enum Template {
-  STARTER = "STARTER",
-  PRO = "PRO",
-}
-
-type Product = {
-  id: string;
-  name?: string;
-  template: Template;
-  description?: string;
-  createdAt: string;
-  updatedAt: string;
-};
+import { Product, Template } from "@/types";
 
 const date = new Date();
 
