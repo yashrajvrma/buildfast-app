@@ -30,8 +30,22 @@ export const checkPaymentStatus = async (paymentData: PaymentData) => {
     },
     select: {
       id: true,
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          githubId: true,
+        },
+      },
       paymentId: true,
-      productId: true,
+      product: {
+        select: {
+          id: true,
+          name: true,
+          template: true,
+        },
+      },
       amount: true,
       currency: true,
       status: true,
@@ -47,5 +61,10 @@ export const checkPaymentStatus = async (paymentData: PaymentData) => {
   if (isPaymentValid.status != PaymentStatus.SUCCESS) {
     redirect("/checkout/failed");
   }
-  
+
+  // check if github id is there and return all the user details along with payment
+
+  return {
+    data: isPaymentValid,
+  };
 };

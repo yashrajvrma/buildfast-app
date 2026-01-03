@@ -9,6 +9,10 @@ export const auth = betterAuth({
         type: "string",
         required: false,
       },
+      githubId: {
+        type: "string",
+        required: false,
+      },
     },
   },
   database: prismaAdapter(prisma, {

@@ -1,3 +1,4 @@
+// checkout/success/page.tsx
 import { redirect } from "next/navigation";
 
 export default async function CheckoutSuccess({
