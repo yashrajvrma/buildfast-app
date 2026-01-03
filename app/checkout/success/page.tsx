@@ -13,7 +13,7 @@ export default async function CheckoutSuccess({
   console.log("payment id is", payment_id);
 
   if (status && status === "failed") {
-    redirect("/checkout/error");
+    redirect("/checkout/failed");
   }
 
   return (

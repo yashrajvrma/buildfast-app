@@ -3,6 +3,13 @@ export enum Template {
   PRO = "PRO",
 }
 
+export enum PaymentStatus {
+  PROCESSING = "PROCESSING",
+  SUCCESS = "SUCCESS",
+  FAILED = "FAILED",
+  CANCELLED = "CANCELLED",
+}
+
 export type Product = {
   id: string;
   name?: string;
@@ -11,3 +18,7 @@ export type Product = {
   createdAt: string;
   updatedAt: string;
 };
+
+export interface PaymentData {
+  paymentId: string;
+}
