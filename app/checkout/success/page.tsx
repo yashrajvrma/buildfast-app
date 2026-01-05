@@ -1,5 +1,10 @@
-// checkout/success/page.tsx
-import { redirect } from "next/navigation";
+import { checkPaymentStatus } from "@/lib/check-payment-status";
+import { ArrowLeft, CheckCircle, Mail } from "lucide-react";
+import Link from "next/link";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { GithubUsername } from "@/components/github-username";
+import { Template } from "@/types";
 
 export default async function CheckoutSuccess({
   searchParams,
@@ -8,20 +13,112 @@ export default async function CheckoutSuccess({
     [key: string]: string | string[] | undefined;
   }>;
 }) {
-  const payment_id = (await searchParams).payment_id;
-  const status = (await searchParams).status;
+  const params = await searchParams;
+  const payment_id = params.payment_id as string;
+  const status = params.status as string;
 
-  console.log("payment id is", payment_id);
+  const paymentResult = await checkPaymentStatus({ paymentId: payment_id });
 
-  if (status && status === "failed") {
-    redirect("/checkout/failed");
+  if (!payment_id || status === "failed" || paymentResult.error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+        <Card className="w-full max-w-md p-8 text-center">
+          <p className="text-destructive font-semibold">
+            Something went wrong with your payment. Please try again.
+          </p>
+          <Link href="/">
+            <Button className="mt-6 w-full">Back to Home</Button>
+          </Link>
+        </Card>
+      </div>
+    );
   }
 
+  const userData = paymentResult.data?.user;
+  const paymentData = paymentResult.data;
+
+  const templateName = paymentData?.product.template;
+  const cloneCommand = `git clone buildfast-${(templateName === Template.STARTER
+    ? "starter"
+    : "pro"
+  ).toLowerCase()}`;
+
   return (
-    <div>
-      hii
-      <div>payment id is : {payment_id}</div>
-      <div>status is : {status}</div>
+    <div className="min-h-screen flex flex-col bg-background">
+      <div className="p-4 sm:p-6">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+        >
+          <ArrowLeft className="w-5 h-5" />
+          <span className="text-sm font-medium">Back to Home</span>
+        </Link>
+      </div>
+
+      <div className="flex-1 flex items-center justify-center p-4 sm:p-6">
+        <div className="w-full max-w-2xl">
+          {/* Success Header */}
+          <div className="text-center mb-8">
+            <div className="flex justify-center mb-6">
+              <div className="bg-primary/10 rounded-full p-4">
+                <CheckCircle className="w-12 h-12 text-primary" />
+              </div>
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+              Thank You!
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              Your subscription to{" "}
+              <span className="font-semibold text-primary">{templateName}</span>{" "}
+              has been activated
+            </p>
+          </div>
+
+          {/* Main Content Card */}
+          <Card className="p-6 sm:p-8 mb-6 border-border/50 shadow-sm">
+            {/* Email Notification Section */}
+            <div className="mb-8 pb-8 border-b border-border/50">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0">
+                  <Mail className="w-6 h-6 text-primary mt-1" />
+                </div>
+                <div>
+                  <h2 className="text-base font-semibold text-foreground mb-2">
+                    Email Confirmation Sent
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    We've sent a confirmation email to{" "}
+                    <span className="font-medium text-foreground">
+                      {userData?.email}
+                    </span>{" "}
+                    with your private repository link and setup instructions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* GitHub Clone Section */}
+            <div>
+              <h2 className="text-base font-semibold text-foreground mb-4">
+                Get Started
+              </h2>
+              <GithubUsername
+                githubId={userData?.githubId as string}
+                cloneCommand={cloneCommand}
+                templateName={templateName as string}
+              />
+            </div>
+          </Card>
+
+          {/* Additional Info */}
+          <div className="bg-accent/50 rounded-lg p-4 text-center">
+            <p className="text-sm text-foreground/80">
+              <span className="font-medium">Need help?</span> Check your email
+              for detailed setup instructions or visit our documentation.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
