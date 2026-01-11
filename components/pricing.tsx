@@ -1,6 +1,10 @@
+"use client";
+
 import { Check, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 interface PricingFeature {
   name: string;
@@ -9,6 +13,7 @@ interface PricingFeature {
 }
 
 interface PricingPlan {
+  id: string;
   name: string;
   price: number;
   description: string;
@@ -19,6 +24,7 @@ interface PricingPlan {
 
 const PRICING_PLANS: PricingPlan[] = [
   {
+    id: "pdt_oZ7JX98ewv5yJ87ILhEo0",
     name: "Starter",
     price: 19,
     description: "Perfect for getting started with modern dev stack",
@@ -53,6 +59,7 @@ const PRICING_PLANS: PricingPlan[] = [
     cta: "Get Starter Plan",
   },
   {
+    id: "pdt_K3bWcsDFPJEmsR3gIAHAS",
     name: "Pro",
     price: 39,
     description: "Everything you need for getting your first customer",
@@ -84,6 +91,23 @@ const PRICING_PLANS: PricingPlan[] = [
 ];
 
 export function PricingSection() {
+  const router = useRouter();
+
+  const handleGetBuildfast = async (id: string) => {
+    console.log("start payment");
+    try {
+      const response = await axios.post("/api/create-checkout-session", {
+        productId: id,
+      });
+      if (response.data) {
+        console.log("data is", JSON.stringify(response.data));
+        const url = response.data.checkoutUrl;
+        router.push(url);
+      }
+    } catch (error) {
+      console.error("Some error occured", error);
+    }
+  };
   return (
     <section
       id="pricing"
@@ -145,6 +169,7 @@ export function PricingSection() {
                 <Button
                   className="w-full mb-8 h-10 font-semibold"
                   variant={plan.highlighted ? "default" : "outline"}
+                  onClick={() => handleGetBuildfast(plan.id)}
                 >
                   {plan.cta}
                 </Button>

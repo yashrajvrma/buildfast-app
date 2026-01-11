@@ -1,19 +1,38 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import axios from "axios";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function CTA() {
+  const router = useRouter();
+
+  const handleGetBuildfast = async () => {
+    console.log("start payment");
+    try {
+      const response = await axios.post("/api/create-checkout-session", {
+        productId: "pdt_K3bWcsDFPJEmsR3gIAHAS",
+      });
+      if (response.data) {
+        console.log("data is", JSON.stringify(response.data));
+        const url = response.data.checkoutUrl;
+        router.push(url);
+      }
+    } catch (error) {
+      console.error("Some error occured", error);
+    }
+  };
   return (
-    <section className="py-24 px-4">
+    <section className="sm:p-10 p-5">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto text-center space-y-8 bg-linear-to-br from-primary/10 via-accent/20 to-muted rounded-3xl p-12 border border-border"
+          className="max-w-7xl mx-auto text-center space-y-8 bg-linear-to-br from-primary/10 via-accent/20 to-muted rounded-3xl p-20 border border-border"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,6 +59,7 @@ export function CTA() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8"
+              onClick={handleGetBuildfast}
             >
               <span className="mr-2">⚡</span>
               Get BuildFast Now

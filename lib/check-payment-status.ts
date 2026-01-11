@@ -16,7 +16,7 @@ export const checkPaymentStatus = async (paymentData: PaymentData) => {
 
   if (!payment.success) {
     return {
-      allError: payment.error,
+      // allError: payment.error,
       error: payment.error.flatten().fieldErrors,
     };
   }
@@ -54,7 +54,7 @@ export const checkPaymentStatus = async (paymentData: PaymentData) => {
 
   if (!isPaymentValid) {
     return {
-      error: `Payment id is invalid`,
+      error: `Invalid Payment id`,
     };
   }
 
