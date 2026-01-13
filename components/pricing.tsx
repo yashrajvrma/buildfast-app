@@ -32,7 +32,7 @@ const PRICING_PLANS: PricingPlan[] = [
       Framework: [
         { name: "Next.js boilerplate", included: true },
         { name: "Tailwind CSS", included: true },
-        { name: "Shaden UI", included: true },
+        { name: "Shadcn UI", included: true },
         { name: "Tanstack Query", included: true },
       ],
       Animation: [
@@ -67,7 +67,7 @@ const PRICING_PLANS: PricingPlan[] = [
       Framework: [
         { name: "Next.js boilerplate", included: true },
         { name: "Tailwind CSS", included: true },
-        { name: "Shaden UI", included: true },
+        { name: "Shadcn UI", included: true },
         { name: "Tanstack Query", included: true },
       ],
       Animation: [

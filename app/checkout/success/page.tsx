@@ -23,12 +23,15 @@ export default async function CheckoutSuccess({
   if (!payment_id || status === "failed" || paymentResult.error) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4 bg-background">
-        <Card className="w-full max-w-md p-8 text-center">
+        <Card className="w-full max-w-sm p-8 text-center">
           <p className="text-destructive font-semibold">
             Something went wrong with your payment. Please try again.
           </p>
           <Link href="/">
-            <Button className="mt-6 w-full">Back to Home</Button>
+            <Button className="mt-6 w-full">
+              <ArrowLeft className="w-4 h-4 mr-0.5" />
+              Back to Home
+            </Button>
           </Link>
         </Card>
       </div>
