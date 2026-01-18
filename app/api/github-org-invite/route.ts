@@ -1,152 +1,3 @@
-// import { prisma } from "@/db";
-// import { NextRequest, NextResponse } from "next/server";
-// import { App } from "@octokit/app";
-
-// const GITHUB_ORG = process.env.GITHUB_ORG || "Yashraj-Verma";
-
-// const TEMPLATE_REPO_MAP: Record<string, string> = {
-//   STARTER: "buildfast-starter",
-//   PRO: "buildfast-pro",
-// };
-
-// // --------------------
-// // GitHub App bootstrap
-// // --------------------
-// function getGitHubApp() {
-//   const { GITHUB_APP_ID, GITHUB_APP_PRIVATE_KEY } = process.env;
-
-//   if (!GITHUB_APP_ID || !GITHUB_APP_PRIVATE_KEY) {
-//     throw new Error("GitHub App environment variables missing");
-//   }
-
-//   return new App({
-//     appId: GITHUB_APP_ID,
-//     privateKey: GITHUB_APP_PRIVATE_KEY.replace(/\\n/g, "\n"),
-//   });
-// }
-
-// async function getInstallationOctokit() {
-//   const { GITHUB_APP_INSTALLATION_ID } = process.env;
-
-//   if (!GITHUB_APP_INSTALLATION_ID) {
-//     throw new Error("GitHub App installation ID missing");
-//   }
-
-//   const app = getGitHubApp();
-//   return await app.getInstallationOctokit(Number(GITHUB_APP_INSTALLATION_ID));
-// }
-
-// // --------------------
-// // GitHub helpers
-// // --------------------
-// async function getGitHubUserId(username: string) {
-//   const octokit = await getInstallationOctokit();
-//   const { data } = await octokit.request("GET /users/{username}", {
-//     username,
-//   });
-//   return data.id as number;
-// }
-
-// async function inviteUserToOrg(userId: number) {
-//   try {
-//     const octokit = await getInstallationOctokit();
-//     await octokit.request("POST /orgs/{org}/invitations", {
-//       org: GITHUB_ORG,
-//       invitee_id: userId,
-//       role: "direct_member",
-//     });
-//     return "Organization invitation sent";
-//   } catch (err: any) {
-//     const code = err?.response?.data?.errors?.[0]?.code;
-//     if (code === "already_invited") return "User already invited";
-//     if (code === "unprocessable") return "User already a member";
-//     throw err;
-//   }
-// }
-
-// async function grantRepoAccess(username: string, repo: string) {
-//   const octokit = await getInstallationOctokit();
-//   const { status } = await octokit.request(
-//     "PUT /repos/{owner}/{repo}/collaborators/{username}",
-//     {
-//       owner: GITHUB_ORG,
-//       repo,
-//       username,
-//       permission: "pull",
-//     }
-//   );
-
-//   if (status === 201) return "Repository invitation sent";
-//   if (status === 204) return "User already has repo access";
-
-//   throw new Error("Failed to grant repository access");
-// }
-
-// // --------------------
-// // API Route
-// // --------------------
-// export async function POST(req: NextRequest) {
-//   try {
-//     const { githubId, paymentId } = await req.json();
-//     if (!githubId || !paymentId) {
-//       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-//     }
-
-//     const payment = await prisma.payment.findUnique({
-//       where: { paymentId },
-//       include: { user: true, product: true },
-//     });
-
-//     if (!payment || payment.status !== "SUCCESS") {
-//       return NextResponse.json(
-//         { error: "Invalid or incomplete payment" },
-//         { status: 400 }
-//       );
-//     }
-
-//     if (payment.user.githubId) {
-//       return NextResponse.json({
-//         success: true,
-//         alreadyConfigured: true,
-//         repository: `${GITHUB_ORG}/${
-//           TEMPLATE_REPO_MAP[payment.product.template]
-//         }`,
-//       });
-//     }
-
-//     const repoName = TEMPLATE_REPO_MAP[payment.product.template];
-//     if (!repoName) {
-//       return NextResponse.json(
-//         { error: "Invalid product template" },
-//         { status: 400 }
-//       );
-//     }
-
-//     // Execute GitHub operations
-//     const githubUsername = githubId.trim();
-//     const userId = await getGitHubUserId(githubUsername);
-//     const orgMsg = await inviteUserToOrg(userId);
-//     const repoMsg = await grantRepoAccess(githubUsername, repoName);
-
-//     await prisma.user.update({
-//       where: { id: payment.user.id },
-//       data: { githubId: githubUsername },
-//     });
-
-//     return NextResponse.json({
-//       success: true,
-//       command: `git clone ${repoName}`,
-//       message: "Repository and Organisation Invitation sent",
-//     });
-//   } catch (err: any) {
-//     console.error("GitHub App error:", err);
-//     return NextResponse.json(
-//       { error: err.message || "Internal server error" },
-//       { status: 500 }
-//     );
-//   }
-// }
-
 import { prisma } from "@/db";
 import { NextRequest, NextResponse } from "next/server";
 import { App } from "@octokit/app";
@@ -199,7 +50,7 @@ async function grantRepoAccess(username: string, repo: string) {
         repo,
         username,
         permission: "pull", // read-only access
-      }
+      },
     );
 
     if (status === 201) return "Repository invitation sent successfully";
@@ -233,7 +84,7 @@ export async function POST(req: NextRequest) {
     if (!payment || payment.status !== "SUCCESS") {
       return NextResponse.json(
         { error: "Invalid or incomplete payment" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -252,7 +103,7 @@ export async function POST(req: NextRequest) {
     if (!repoName) {
       return NextResponse.json(
         { error: "Invalid product template" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -275,7 +126,7 @@ export async function POST(req: NextRequest) {
     console.error("GitHub App error:", err);
     return NextResponse.json(
       { error: err.message || "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
