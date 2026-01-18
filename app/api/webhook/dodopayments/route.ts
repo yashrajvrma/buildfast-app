@@ -2,6 +2,7 @@ import { prisma } from "@/db";
 import { NextRequest, NextResponse } from "next/server";
 import { Webhook } from "standardwebhooks";
 import { Resend } from "resend";
+import { list } from "@vercel/blob";
 
 const webhookSecret = process.env.DODO_PAYMENTS_WEBHOOK_SECRET;
 
@@ -17,7 +18,7 @@ export async function POST(req: NextRequest) {
     if (!webhookId || !webhookSignature || !webhookTimestamp) {
       return NextResponse.json(
         { error: "Missing webhook headers" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -28,7 +29,7 @@ export async function POST(req: NextRequest) {
     if (!webhookSecret) {
       return NextResponse.json(
         { error: "Missing webhook secret" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -45,7 +46,7 @@ export async function POST(req: NextRequest) {
       console.error("Webhook verification failed:", err);
       return NextResponse.json(
         { error: "Invalid webhook signature" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -77,13 +78,13 @@ export async function POST(req: NextRequest) {
     // Return success response
     return NextResponse.json(
       { received: true, type: payload.type },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Webhook processing error:", error);
     return NextResponse.json(
       { error: "Webhook processing failed" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -128,7 +129,7 @@ async function handlePaymentSucceeded(data: PaymentData) {
 
     const product = await prisma.product.findUnique({
       where: { id: productId },
-      select: { id: true, name: true },
+      select: { id: true, name: true, template: true },
     });
 
     if (!product) {
@@ -160,7 +161,8 @@ async function handlePaymentSucceeded(data: PaymentData) {
     await sendPaymentSuccessEmail({
       email: user.email,
       name: user.name,
-      productName: product.name || "Product",
+      productName: product.name!,
+      template: product.template,
       amount: data.total_amount,
       currency: data.currency,
       paymentId: data.payment_id,
@@ -321,39 +323,108 @@ async function createOrGetCustomer(customer: Customer) {
   }
 }
 
+async function getRepoLink(template: string) {
+  try {
+    const response = await list({
+      token: process.env.BUILDFAST_PROD_READ_WRITE_TOKEN,
+      prefix: `templates/${template}`,
+    });
+
+    console.log("response is", JSON.stringify(response));
+    const link = response.blobs[0].url;
+
+    return link;
+  } catch (error) {
+    console.error("Error fetching template link", error);
+    throw error;
+  }
+}
+
+// async function sendPaymentSuccessEmail(data: {
+//   email: string;
+//   name: string;
+//   productName: string;
+//   template: "PRO" | "STARTER";
+//   amount: number;
+//   currency: string;
+//   paymentId: string;
+// }) {
+//   try {
+//     // fetch template link
+//     const name = data.template === "PRO" ? "pro" : "starter";
+//     const downloadLink = await getRepoLink(name);
+
+//     // TODO: Implement your email sending logic here
+//     await resend.emails.send({
+//       from: "Buildfast <support@buildfast.shop>",
+//       to: [`${data.email}`],
+//       subject: "Payment Successful - Order Confirmation",
+//       html: `
+//         <h1>Thank you for your purchase, ${data.name}!</h1>
+//         <p>Your payment has been processed successfully.</p>
+//         <h2>Order Details:</h2>
+//         <ul>
+//           <li><strong>Product:</strong> ${data.productName}</li>
+//           <li><strong>Amount:</strong> ${data.currency} ${(
+//         data.amount / 100
+//       ).toFixed(2)}</li>
+//           <li><strong>Payment ID:</strong> ${data.paymentId}</li>
+//         </ul>
+//         <p>If you have any questions, please contact our support team.</p>
+//       `,
+//     });
+
+//     console.log("Success email sent to:", data.email);
+//   } catch (error) {
+//     console.error("Error sending success email:", error);
+//     // Don't throw - we don't want email failures to fail the webhook
+//   }
+// }
+
 async function sendPaymentSuccessEmail(data: {
   email: string;
   name: string;
   productName: string;
+  template: "PRO" | "STARTER";
   amount: number;
   currency: string;
   paymentId: string;
 }) {
   try {
-    // TODO: Implement your email sending logic here
+    // fetch template link
+    const name = data.template === "PRO" ? "pro" : "starter";
+    const downloadLink = await getRepoLink(name);
 
-    await resend.emails.send({
-      from: "Buildfast <support@buildfast.shop>",
-      to: [`${data.email}`],
-      subject: "Payment Successful - Order Confirmation",
-      html: `
-        <h1>Thank you for your purchase, ${data.name}!</h1>
-        <p>Your payment has been processed successfully.</p>
-        <h2>Order Details:</h2>
-        <ul>
-          <li><strong>Product:</strong> ${data.productName}</li>
-          <li><strong>Amount:</strong> ${data.currency} ${(
-        data.amount / 100
-      ).toFixed(2)}</li>
-          <li><strong>Payment ID:</strong> ${data.paymentId}</li>
-        </ul>
-        <p>If you have any questions, please contact our support team.</p>
-      `,
+    const price = `${data.currency} ${(data.amount / 100).toFixed(2)}`;
+
+    const { data: emailData, error } = await resend.emails.send({
+      from: "BuildFast <support@buildfast.shop>",
+      to: [data.email],
+      template: {
+        id: process.env.RESEND_PAYMENT_CONFIRMATION_TEMPLATE_ID!,
+        variables: {
+          name: data.name,
+          productName: data.productName,
+          template: String(name).toUpperCase(),
+          amount: price,
+          paymentId: data.paymentId,
+          downloadLink: downloadLink,
+          websiteLink: `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/success?payment_id=${data.paymentId}`,
+        },
+      },
     });
 
+    if (error) {
+      console.error("Error sending email:", error);
+      return;
+    }
+
     console.log("Success email sent to:", data.email);
+    console.log("Email ID:", emailData?.id);
   } catch (error) {
     console.error("Error sending success email:", error);
     // Don't throw - we don't want email failures to fail the webhook
   }
 }
+
+export { sendPaymentSuccessEmail };

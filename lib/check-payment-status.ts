@@ -4,6 +4,7 @@ import { prisma } from "@/db";
 import { PaymentData, PaymentStatus } from "@/types";
 import { redirect } from "next/navigation";
 import z from "zod";
+import { list } from "@vercel/blob";
 
 const paymentSchema = z.object({
   paymentId: z.string().min(1, {
@@ -67,4 +68,16 @@ export const checkPaymentStatus = async (paymentData: PaymentData) => {
   return {
     data: isPaymentValid,
   };
+};
+
+export const getRepoLink = async (template: string) => {
+  const response = await list({
+    token: process.env.BUILDFAST_PROD_READ_WRITE_TOKEN,
+    prefix: `templates/${template}`,
+  });
+
+  console.log("response is", JSON.stringify(response));
+  const link = response.blobs[0].url;
+
+  return link;
 };

@@ -1,4 +1,4 @@
-import { checkPaymentStatus } from "@/lib/check-payment-status";
+import { checkPaymentStatus, getRepoLink } from "@/lib/check-payment-status";
 import { ArrowLeft, CheckCircle, Mail } from "lucide-react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
@@ -18,6 +18,9 @@ export default async function CheckoutSuccess({
   const status = params.status as string;
 
   const paymentResult = await checkPaymentStatus({ paymentId: payment_id });
+  const template = "pro";
+  const link = await getRepoLink(template);
+
   console.log("payment is", JSON.stringify(paymentResult));
 
   if (!payment_id || status === "failed" || paymentResult.error) {
@@ -115,6 +118,14 @@ export default async function CheckoutSuccess({
                 templateName={templateName as string}
                 paymentId={payment_id}
               />
+            </div>
+
+            <div className="flex flex-col gap-2 justify-center items-center">
+              <p>OR</p>
+              <a href={link} download="buildfast-pro.zip">
+                Download BuildFast Pro
+              </a>
+              {/* <Button className="w-full"></Button> */}
             </div>
           </Card>
 
