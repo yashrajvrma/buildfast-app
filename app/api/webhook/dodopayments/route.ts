@@ -397,11 +397,13 @@ async function sendPaymentSuccessEmail(data: {
 
     const price = `${data.currency} ${(data.amount / 100).toFixed(2)}`;
 
+    const templateId = "af9cfa33-5268-4367-a714-d9f71b2ab231";
+
     const { data: emailData, error } = await resend.emails.send({
       from: "BuildFast <support@buildfast.shop>",
       to: [data.email],
       template: {
-        id: process.env.RESEND_PAYMENT_CONFIRMATION_TEMPLATE_ID!,
+        id: templateId,
         variables: {
           name: data.name,
           productName: data.productName,
