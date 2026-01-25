@@ -402,6 +402,7 @@ async function sendPaymentSuccessEmail(data: {
     const { data: emailData, error } = await resend.emails.send({
       from: "BuildFast <support@buildfast.shop>",
       to: [data.email],
+      subject: "Order confirmation",
       template: {
         id: templateId,
         variables: {
