@@ -50,7 +50,7 @@ const PRICING_PLANS: PricingPlan[] = [
       Email: [{ name: "Resend", included: false, isPremium: true }],
       Payments: [
         {
-          name: "Polar Pricing / Dodo Payments",
+          name: "Stripe / Dodo Payments",
           included: false,
           isPremium: true,
         },
@@ -83,7 +83,7 @@ const PRICING_PLANS: PricingPlan[] = [
         { name: "PostgreSQL / Supabase", included: true },
       ],
       Email: [{ name: "Resend", included: true }],
-      Payments: [{ name: "Polar Pricing / Dodo Payments", included: true }],
+      Payments: [{ name: "Stripe / Dodo Payments", included: true }],
     },
     cta: "Get Pro Plan",
     highlighted: true,
