@@ -41,7 +41,7 @@ const PRICING_PLANS: PricingPlan[] = [
       ],
       Authentication: [
         { name: "Better Auth (OAuth)", included: true },
-        { name: "Better Auth (Email auth)", included: false, isPremium: true },
+        { name: "Better Auth (Email auth)", included: true },
       ],
       Database: [
         { name: "Prisma ORM", included: true },
