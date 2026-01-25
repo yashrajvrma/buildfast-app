@@ -4,14 +4,14 @@ const date = new Date();
 
 export const productData: Product[] = [
   {
-    id: "pdt_oZ7JX98ewv5yJ87ILhEo0",
+    id: "pdt_0NX3ShtIX25F6GSAnbZD9",
     // TODO: add name and description
     template: Template.STARTER,
     createdAt: date.toISOString(),
     updatedAt: date.toISOString(),
   },
   {
-    id: "pdt_K3bWcsDFPJEmsR3gIAHAS",
+    id: "pdt_0NX3TI3quAxJMrUTfRwxr",
     // TODO: add name and description
     template: Template.PRO,
     createdAt: date.toISOString(),

@@ -24,7 +24,7 @@ interface PricingPlan {
 
 const PRICING_PLANS: PricingPlan[] = [
   {
-    id: "pdt_oZ7JX98ewv5yJ87ILhEo0",
+    id: process.env.NEXT_PUBLIC_BUILDFAST_STARTER_PRODUCT_ID!,
     name: "Starter",
     price: 19,
     description: "Perfect for getting started with modern dev stack",
@@ -59,7 +59,7 @@ const PRICING_PLANS: PricingPlan[] = [
     cta: "Get Starter Plan",
   },
   {
-    id: "pdt_K3bWcsDFPJEmsR3gIAHAS",
+    id: process.env.NEXT_PUBLIC_BUILDFAST_PRO_PRODUCT_ID!,
     name: "Pro",
     price: 39,
     description: "Everything you need for getting your first customer",

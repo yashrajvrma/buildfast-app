@@ -15,7 +15,7 @@ export function Hero() {
     console.log("start payment");
     try {
       const response = await axios.post("/api/create-checkout-session", {
-        productId: "pdt_K3bWcsDFPJEmsR3gIAHAS",
+        productId: process.env.NEXT_PUBLIC_BUILDFAST_PRO_PRODUCT_ID,
       });
       if (response.data) {
         console.log("data is", JSON.stringify(response.data));
