@@ -16,7 +16,7 @@ A modern, production-ready Next.js starter template with authentication, databas
 
 ### Prerequisites
 
-- Node.js 18+ and npm/yarn/pnpm
+- Node.js 18+ and npm
 - PostgreSQL database
 - Google OAuth credentials (for authentication)
 
