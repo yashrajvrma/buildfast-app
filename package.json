@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "pnpx prisma generate"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@dodopayments/better-auth": "^1.3.6",
