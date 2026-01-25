@@ -398,6 +398,7 @@ async function sendPaymentSuccessEmail(data: {
     const price = `${data.currency} ${(data.amount / 100).toFixed(2)}`;
 
     const templateId = "af9cfa33-5268-4367-a714-d9f71b2ab231";
+    console.log("email data is", JSON.stringify(data));
 
     const { data: emailData, error } = await resend.emails.send({
       from: "BuildFast <support@buildfast.shop>",
