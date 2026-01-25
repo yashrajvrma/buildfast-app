@@ -340,47 +340,6 @@ async function getRepoLink(template: string) {
   }
 }
 
-// async function sendPaymentSuccessEmail(data: {
-//   email: string;
-//   name: string;
-//   productName: string;
-//   template: "PRO" | "STARTER";
-//   amount: number;
-//   currency: string;
-//   paymentId: string;
-// }) {
-//   try {
-//     // fetch template link
-//     const name = data.template === "PRO" ? "pro" : "starter";
-//     const downloadLink = await getRepoLink(name);
-
-//     // TODO: Implement your email sending logic here
-//     await resend.emails.send({
-//       from: "Buildfast <support@buildfast.shop>",
-//       to: [`${data.email}`],
-//       subject: "Payment Successful - Order Confirmation",
-//       html: `
-//         <h1>Thank you for your purchase, ${data.name}!</h1>
-//         <p>Your payment has been processed successfully.</p>
-//         <h2>Order Details:</h2>
-//         <ul>
-//           <li><strong>Product:</strong> ${data.productName}</li>
-//           <li><strong>Amount:</strong> ${data.currency} ${(
-//         data.amount / 100
-//       ).toFixed(2)}</li>
-//           <li><strong>Payment ID:</strong> ${data.paymentId}</li>
-//         </ul>
-//         <p>If you have any questions, please contact our support team.</p>
-//       `,
-//     });
-
-//     console.log("Success email sent to:", data.email);
-//   } catch (error) {
-//     console.error("Error sending success email:", error);
-//     // Don't throw - we don't want email failures to fail the webhook
-//   }
-// }
-
 async function sendPaymentSuccessEmail(data: {
   email: string;
   name: string;
@@ -403,7 +362,7 @@ async function sendPaymentSuccessEmail(data: {
     const { data: emailData, error } = await resend.emails.send({
       from: "BuildFast <support@buildfast.shop>",
       to: [data.email],
-      subject: "Order confirmation",
+      subject: "Payment Successful for Buildfast",
       template: {
         id: templateId,
         variables: {

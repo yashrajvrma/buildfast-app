@@ -120,17 +120,16 @@ export default async function CheckoutSuccess({
               />
             </div>
 
-            <div className="flex flex-col gap-2 justify-center items-center">
+            {/* <div className="flex flex-col gap-2 justify-center items-center">
               <p>OR</p>
               <a href={link} download="buildfast-pro.zip">
-                Download BuildFast Pro
+                Download BuildFast
               </a>
-              {/* <Button className="w-full"></Button> */}
-            </div>
+            </div> */}
           </Card>
 
           {/* Additional Info */}
-          <div className="bg-accent/50 rounded-lg p-4 text-center">
+          <div className="rounded-lg p-4 text-center">
             <p className="text-sm text-foreground/80">
               <span className="font-medium">Need help?</span> Check your email
               for detailed setup instructions or visit our documentation.
