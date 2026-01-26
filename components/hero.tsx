@@ -27,7 +27,7 @@ export function Hero() {
     }
   };
   return (
-    <section className="pt-40 pb-16 px-4 relative overflow-hidden">
+    <section className="sm:pt-40 pt-28 pb-16 px-4 relative overflow-hidden">
       <div className="container mx-auto sm:max-w-7xl">
         <div className="flex flex-col items-center gap-12 mx-auto">
           <motion.div
@@ -37,6 +37,21 @@ export function Hero() {
             className="space-y-8 w-full sm:max-w-6xl"
           >
             <div className="space-y-4 text-center">
+              {/* add product hunt badge */}
+              <div className="flex justify-center pb-3">
+                <a
+                  href="https://www.producthunt.com/products/buildfast-6?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-buildfast-ebec283b-9fb9-4c21-873f-058169d0ab30"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    alt="Buildfast - The NextJS boilerplate that all you need to reach 1K+ MRR | Product Hunt"
+                    width={250}
+                    height={50} // 54
+                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1068173&amp;theme=light&amp;t=1769424656393"
+                  />
+                </a>
+              </div>
               <h1 className="text-4xl sm:text-6xl font-bold tracking-tight sm:max-w-4xl mx-auto">
                 Build your startup{" "}
                 <span className="relative inline-block pt-3">
@@ -87,21 +102,21 @@ export function Hero() {
                       src="https://i.postimg.cc/t422fpx2/john_result.webp"
                       alt="user 1"
                     />
-                    <AvatarFallback>U1</AvatarFallback>
+                    <AvatarFallback></AvatarFallback>
                   </Avatar>
                   <Avatar className="ring-2 ring-background">
                     <AvatarImage
                       src="https://i.postimg.cc/85VJmrz9/44.webp"
                       alt="User 2"
                     />
-                    <AvatarFallback>U2</AvatarFallback>
+                    <AvatarFallback></AvatarFallback>
                   </Avatar>
                   <Avatar className="ring-2 ring-background">
                     <AvatarImage
                       src="https://i.postimg.cc/DZ5DPLcC/avatars3.webp"
                       alt="User 3"
                     />
-                    <AvatarFallback>U3</AvatarFallback>
+                    <AvatarFallback></AvatarFallback>
                   </Avatar>
                 </div>
                 <div className="flex items-center gap-2">
