@@ -7,9 +7,29 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import logoAndName from "@/public/assets/images/logoAndName.png";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const router = useRouter();
+
+  const handleGetBuildfast = async () => {
+    console.log("start payment");
+    try {
+      const response = await axios.post("/api/create-checkout-session", {
+        productId: process.env.NEXT_PUBLIC_BUILDFAST_PRO_PRODUCT_ID,
+      });
+      if (response.data) {
+        console.log("data is", JSON.stringify(response.data));
+        const url = response.data.checkoutUrl;
+        router.push(url);
+      }
+    } catch (error) {
+      console.error("Some error occured", error);
+    }
+  };
 
   return (
     <motion.nav
@@ -64,7 +84,10 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button
+              onClick={handleGetBuildfast}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
               Start Building
             </Button>
           </div>
@@ -82,25 +105,34 @@ export function Navbar() {
             className="md:hidden pb-4 space-y-4"
           >
             <Link
+              href="#features"
+              className="block text-base font-medium text-muted-foreground hover:text-foreground"
+            >
+              Features
+            </Link>
+            <Link
+              href="#example"
+              className="block text-base font-medium text-muted-foreground hover:text-foreground"
+            >
+              Example
+            </Link>
+            <Link
               href="#pricing"
               className="block text-base font-medium text-muted-foreground hover:text-foreground"
             >
               Pricing
             </Link>
             <Link
-              href="#demo"
+              href="#faq"
               className="block text-base font-medium text-muted-foreground hover:text-foreground"
             >
-              Demo
+              FAQ
             </Link>
-            <Link
-              href="#testimonials"
-              className="block text-base font-medium text-muted-foreground hover:text-foreground"
+            <Button
+              onClick={handleGetBuildfast}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
             >
-              Wall of love
-            </Link>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              Get BuildFast
+              Start Building
             </Button>
           </motion.div>
         )}
