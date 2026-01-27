@@ -59,7 +59,7 @@ const features: Feature[] = [
     ],
     integrations: [
       { name: "Stripe", logo: "/assets/images/stripe.png" },
-      { name: "Lemon Squeezy", logo: "/assets/images/dodo.png" },
+      { name: "DodoPayments", logo: "/assets/images/dodo.png" },
     ],
   },
   {
