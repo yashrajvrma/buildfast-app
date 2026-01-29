@@ -14,7 +14,12 @@ export function Footer() {
           {/* Header with Logo */}
 
           <div className="flex justify-center items-center sm:w-14 sm:h-14 w-10 h-10 bg-background  sm:rounded-lg rounded-sm ">
-            <Image src={logo} alt="logo" className="sm:w-6 w-4" />
+            <Image
+              src={logo}
+              alt="logo"
+              loading="lazy"
+              className="sm:w-6 w-4"
+            />
           </div>
           {/* Quick Links */}
           <div>
@@ -132,6 +137,7 @@ export function Footer() {
             // width={1100}
             quality={100}
             draggable={false}
+            loading="lazy"
           />
 
           {/* <h1 className="text-4xl sm:text-8xl font-bold text-pretty">

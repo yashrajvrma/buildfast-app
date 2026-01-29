@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 interface Feature {
@@ -108,25 +109,34 @@ export const Packages = () => {
                     {feature.isDual ? (
                       <div className="flex items-center justify-center gap-3">
                         <div className="w-16 h-16">
-                          <img
+                          <Image
                             src={feature.images?.[0] || ""}
                             alt={feature.title}
+                            width={100}
+                            height={100}
+                            loading="lazy"
                             className="w-full h-full object-contain"
                           />
                         </div>
                         <div className="w-16 h-16">
-                          <img
+                          <Image
                             src={feature.images?.[1] || ""}
                             alt={feature.title}
+                            width={100}
+                            height={100}
+                            loading="lazy"
                             className="w-full h-full object-contain"
                           />
                         </div>
                       </div>
                     ) : (
                       <div className="w-20 h-20 mx-auto">
-                        <img
-                          src={feature.image}
+                        <Image
+                          src={feature.image!}
                           alt={feature.title}
+                          width={100}
+                          height={100}
+                          loading="lazy"
                           className="w-full h-full object-contain"
                         />
                       </div>
@@ -176,25 +186,34 @@ export const Packages = () => {
                     {feature.isDual ? (
                       <div className="flex items-center justify-center gap-3">
                         <div className="w-16 h-16">
-                          <img
+                          <Image
                             src={feature.images?.[0] || ""}
                             alt={feature.title}
+                            width={100}
+                            height={100}
+                            loading="lazy"
                             className="w-full h-full object-contain"
                           />
                         </div>
                         <div className="w-16 h-16">
-                          <img
+                          <Image
                             src={feature.images?.[1] || ""}
                             alt={feature.title}
+                            width={100}
+                            height={100}
+                            loading="lazy"
                             className="w-full h-full object-contain"
                           />
                         </div>
                       </div>
                     ) : (
                       <div className="w-20 h-20 mx-auto">
-                        <img
-                          src={feature.image}
+                        <Image
+                          src={feature.image!}
                           alt={feature.title}
+                          width={100}
+                          height={100}
+                          loading="lazy"
                           className="w-full h-full object-contain"
                         />
                       </div>

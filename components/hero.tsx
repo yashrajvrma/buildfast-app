@@ -101,6 +101,7 @@ export function Hero() {
                     <AvatarImage
                       src="https://i.postimg.cc/t422fpx2/john_result.webp"
                       alt="user 1"
+                      loading="lazy"
                     />
                     <AvatarFallback></AvatarFallback>
                   </Avatar>
@@ -108,6 +109,7 @@ export function Hero() {
                     <AvatarImage
                       src="https://i.postimg.cc/85VJmrz9/44.webp"
                       alt="User 2"
+                      loading="lazy"
                     />
                     <AvatarFallback></AvatarFallback>
                   </Avatar>
@@ -115,6 +117,7 @@ export function Hero() {
                     <AvatarImage
                       src="https://i.postimg.cc/DZ5DPLcC/avatars3.webp"
                       alt="User 3"
+                      loading="lazy"
                     />
                     <AvatarFallback></AvatarFallback>
                   </Avatar>
@@ -153,11 +156,6 @@ export function Hero() {
               priority={true}
               draggable={false}
             />
-            {/* <img
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=500&fit=crop"
-              alt="Product showcase"
-              className="w-full h-auto rounded-lg shadow-2xl"
-            /> */}
           </motion.div>
         </div>
       </div>

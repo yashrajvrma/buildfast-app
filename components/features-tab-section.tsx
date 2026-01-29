@@ -240,6 +240,7 @@ export function FeaturesTab() {
                     quality={100}
                     width={100}
                     height={100}
+                    loading="lazy"
                   />
                 </div>
                 <span className="text-base font-medium">

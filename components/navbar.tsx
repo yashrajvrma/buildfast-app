@@ -46,6 +46,7 @@ export function Navbar() {
               alt="buildfast-logo"
               quality={100}
               className="w-28"
+              loading="lazy"
             />
           </Link>
 
