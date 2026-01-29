@@ -27,8 +27,8 @@ export function Hero() {
     }
   };
   return (
-    <section className="sm:pt-40 pt-28 pb-16 px-4 relative overflow-hidden">
-      <div className="container mx-auto sm:max-w-7xl">
+    <section className="pb-16 px-4 relative overflow-hidden">
+      <div className="container mx-auto sm:max-w-7xl border-x sm:pt-40 pt-28">
         <div className="flex flex-col items-center gap-12 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -52,8 +52,8 @@ export function Hero() {
                   />
                 </a>
               </div>
-              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight sm:max-w-4xl mx-auto">
-                Build your startup{" "}
+              <h1 className="text-4xl sm:text-7xl font-bold tracking-tight sm:max-w-3xl mx-auto">
+                Ideas to MVP{" "}
                 <span className="relative inline-block pt-3">
                   in days,{" "}
                   <span className="relative inline-block">
