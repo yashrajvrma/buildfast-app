@@ -36,7 +36,7 @@
   --sidebar-accent-foreground: oklch(0.9919 0.0175 99.5961);
   --sidebar-border: oklch(0.7459 0.1634 161.5183);
   --sidebar-ring: oklch(0.9919 0.0175 99.5961);
-  --font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
+  --font-sans: Rethink Sans, ui-sans-serif, sans-serif, system-ui;
   --font-serif: Georgia, serif;
   --font-mono: "JetBrains Mono", monospace;
   --font-inter: Inter, ui-sans-serif, sans-serif, system-ui;
@@ -102,7 +102,7 @@
   --sidebar-accent-foreground: oklch(0.9603 0.0017 286.368);
   --sidebar-border: oklch(0.7459 0.1634 161.5183);
   --sidebar-ring: oklch(0.9603 0.0017 286.368);
-  --font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
+  --font-sans: Rethink Sans, ui-sans-serif, sans-serif, system-ui;
   --font-serif: Georgia, serif;
   --font-mono: "JetBrains Mono", monospace;
   --font-inter: Inter, ui-sans-serif, sans-serif, system-ui;
