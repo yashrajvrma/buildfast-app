@@ -105,7 +105,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:yashrajv.work@gmail.com"
+                  href="mailto:support@buildfast.shop"
                   className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                 >
                   {/* <Mail className="w-4 h-4" /> */}

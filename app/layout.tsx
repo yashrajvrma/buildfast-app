@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
+import { Geist, Geist_Mono, DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/next";
+
+const interSans = Inter({
+  variable: "--font-inter-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -141,15 +147,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script
-          async
-          crossOrigin="anonymous"
-          src="https://tweakcn.com/live-preview.min.js"
-        />
-      </head>
       <body
-        className={`${dmSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${dmSans.variable} ${interSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Analytics />
         <Providers>{children}</Providers>

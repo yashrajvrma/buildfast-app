@@ -38,7 +38,7 @@ export function Hero() {
           >
             <div className="space-y-4 text-center">
               {/* add product hunt badge */}
-              <div className="flex justify-center pb-3">
+              {/* <div className="flex justify-center pb-3">
                 <a
                   href="https://www.producthunt.com/products/buildfast-6?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-buildfast-ebec283b-9fb9-4c21-873f-058169d0ab30"
                   target="_blank"
@@ -51,7 +51,23 @@ export function Hero() {
                     src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1068173&amp;theme=light&amp;t=1769424656393"
                   />
                 </a>
+              </div> */}
+              <div className="flex justify-center pb-3">
+                <a
+                  href="https://peerlist.io/yashrajvrma/project/buildfast"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="https://peerlist.io/api/v1/projects/embed/PRJHKKDQPOEL6OAKECDA9JERK66GEA?showUpvote=false&theme=light"
+                    alt="Buildfast"
+                    width={250}
+                    height={50} // 54
+                    // style="width: auto; height: 72px;"
+                  />
+                </a>
               </div>
+
               <h1 className="text-4xl sm:text-7xl font-bold tracking-tight sm:max-w-3xl mx-auto">
                 Ideas to MVP{" "}
                 <span className="relative inline-block pt-3">
@@ -64,16 +80,16 @@ export function Hero() {
                       className="absolute inset-0 bg-foreground -rotate-2"
                       style={{ transformOrigin: "center" }}
                     />
-                    <span className="relative inline-block px-3 py-1 text-background">
+                    <span className="relative inline-block px-2.5 py-1 text-background">
                       not weeks
                     </span>
                   </span>
                 </span>
               </h1>
 
-              <p className="text-base sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto pt-3 font-medium">
-                The NextJS boilerplate with all you need to build your SaaS, AI
-                tool, or any other web app and make your first $ online fast.
+              <p className="text-base sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto pt-2 font-medium">
+                The NextJS boilerplate that all you need turn your boring ideas
+                into profitable startups and reach $1K+ MRR
               </p>
             </div>
 

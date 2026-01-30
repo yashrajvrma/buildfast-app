@@ -36,9 +36,10 @@
   --sidebar-accent-foreground: oklch(0.9919 0.0175 99.5961);
   --sidebar-border: oklch(0.7459 0.1634 161.5183);
   --sidebar-ring: oklch(0.9919 0.0175 99.5961);
-  --font-sans: Rethink Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
   --font-serif: Georgia, serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-inter: Inter, ui-sans-serif, sans-serif, system-ui;
   --radius: 0.75rem;
   --shadow-x: 0rem;
   --shadow-y: 0.25rem;
@@ -101,9 +102,10 @@
   --sidebar-accent-foreground: oklch(0.9603 0.0017 286.368);
   --sidebar-border: oklch(0.7459 0.1634 161.5183);
   --sidebar-ring: oklch(0.9603 0.0017 286.368);
-  --font-sans: Rethink Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
   --font-serif: Georgia, serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-inter: Inter, ui-sans-serif, sans-serif, system-ui;
   --radius: 0.75rem;
   --shadow-x: 0rem;
   --shadow-y: 0.25rem;
@@ -183,6 +185,7 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 }
+
 body {
   background: var(--background);
   color: var(--foreground);
