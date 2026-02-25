@@ -28,7 +28,7 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     id: process.env.NEXT_PUBLIC_BUILDFAST_STARTER_PRODUCT_ID!,
     name: "Starter",
-    oldPrice: 59,
+    oldPrice: 58,
     price: 29,
     description: "Perfect for getting started with modern dev stack",
     features: {
@@ -64,7 +64,7 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     id: process.env.NEXT_PUBLIC_BUILDFAST_PRO_PRODUCT_ID!,
     name: "Pro",
-    oldPrice: 99,
+    oldPrice: 98,
     price: 49,
     description: "Everything you need for getting your first customer",
     features: {
