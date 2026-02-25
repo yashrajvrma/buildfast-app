@@ -64,13 +64,13 @@ export function FAQSection() {
   return (
     <section
       id="faq"
-      className="w-full py-10 px-4 sm:px-6 lg:px-8 bg-background"
+      className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background border-b"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left side - Header */}
           <div className="flex flex-col justify-start lg:items-start items-center text-center lg:text-left">
-            <p className="text-base font-semibold text-muted-foreground mb-2 uppercase tracking-wide">
+            <p className="text-xl font-semibold text-muted-foreground mb-2 uppercase tracking-wide">
               FAQ
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground leading-tight text-balance mb-8 max-w-3xl">
@@ -87,7 +87,7 @@ export function FAQSection() {
                 className="border border-border overflow-hidden transition-all duration-300 cursor-pointer"
               >
                 <button className="w-full px-6 flex items-center justify-between transition-colors cursor-pointer">
-                  <h3 className="text-lg font-semibold text-foreground text-left">
+                  <h3 className="text-xl font-medium text-foreground text-left">
                     {item.question}
                   </h3>
                   <div
@@ -101,7 +101,7 @@ export function FAQSection() {
 
                 {openIndex === index && (
                   <div className="px-6 py-0 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <div className="text-muted-foreground space-y-3 text-base leading-relaxed">
+                    <div className="text-muted-foreground space-y-2 text-lg leading-relaxed">
                       {typeof item.answer === "string" ? (
                         <p>{item.answer}</p>
                       ) : (

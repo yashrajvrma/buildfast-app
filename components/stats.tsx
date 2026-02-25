@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 
 export function Stats() {
   return (
-    <section className="py-24 px-4">
+    <section className="py-24 px-4 border-b">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,10 +14,10 @@ export function Stats() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold mb-3 text-balance">
             Save <span className="text-primary">22+ hours</span> of headaches
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl text-muted-foreground">
             Stop overthinking and start shipping
           </p>
         </motion.div>
@@ -28,7 +28,7 @@ export function Stats() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Card className="max-w-2xl mx-auto p-8 bg-linear-to-br from-primary/10 via-accent/10 to-muted text-lg">
+          <Card className="max-w-2xl mx-auto p-8 bg-linear-to-br from-primary/10 via-accent/10 to-muted text-xl">
             <div className="space-y-3 text-center">
               <div className="text-muted-foreground">
                 <span className="text-primary font-semibold">4 hrs</span> to set

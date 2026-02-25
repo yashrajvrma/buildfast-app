@@ -25,14 +25,14 @@ export function CTA() {
     }
   };
   return (
-    <section className="sm:p-10 p-5">
+    <section className="border-b">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-7xl mx-auto text-center space-y-8 bg-linear-to-br from-primary/10 via-accent/20 to-muted rounded-3xl px-10 py-20 border border-border"
+          className="max-w-7xl mx-auto text-center space-y-8 bg-linear-to-br from-primary/10 via-accent/20 to-muted px-10 py-20"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}

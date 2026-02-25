@@ -168,17 +168,17 @@ export function FeaturesTab() {
   return (
     <section
       id="example"
-      className="flex justify-center w-full py-10 px-4 lg:px-8 bg-background"
+      className="flex justify-center w-full py-20 px-4 lg:px-8 bg-background border-b"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-10">
           <h2 className="flex flex-col text-4xl sm:text-5xl font-bold tracking-tight mb-6 gap-y-2">
-            <div>Supercharge your app instantly,</div>
-            <div>launch faster, make $</div>
+            <span>Build your app instantly, launch faster and make $</span>
+            {/* <span>launch faster, make $</span> */}
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-3xl">
+          <p className="sm:text-xl text-lg text-muted-foreground max-w-3xl">
             Login users, process payments and send emails at lightspeed. Spend
             your time building your startup, not integrating APIs. BuildFast
             provides you with the boilerplate code you need to launch, FAST.
@@ -192,7 +192,7 @@ export function FeaturesTab() {
               <button
                 key={index}
                 onClick={() => setActiveFeature(index)}
-                className={`flex flex-col items-center gap-3 transition-all duration-300 ${
+                className={`flex flex-col items-center gap-3 transition-all duration-300  ${
                   activeFeature === index
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
@@ -207,7 +207,7 @@ export function FeaturesTab() {
                 >
                   {feature.icon}
                 </div>
-                <span className="text-base font-medium">{feature.label}</span>
+                <span className="text-lg font-medium">{feature.label}</span>
               </button>
             ))}
           </div>
@@ -221,15 +221,17 @@ export function FeaturesTab() {
               {current.features.map((feature, index) => (
                 <li key={index} className="flex gap-3 items-start">
                   <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">{feature}</span>
+                  <span className="text-muted-foreground text-lg">
+                    {feature}
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Integrations */}
-          <div className="flex gap-3 items-center flex-wrap pt-4 border-t border-border">
-            <span className="text-base text-muted-foreground">with</span>
+          <div className="flex gap-3 items-center flex-wrap sm:pt-10 pt-6 border-t border-border">
+            <span className="text-lg text-muted-foreground">with</span>
             {current.integrations.map((integration: any, index: any) => (
               <div key={index} className="flex gap-2 items-center">
                 <div className="w-8 h-8 relative rounded overflow-hidden flex items-center justify-center bg-white">

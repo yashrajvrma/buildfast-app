@@ -78,12 +78,12 @@ export const Packages = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section id="features" className="w-full py-20 px-4 md:px-8">
+    <section id="features" className="w-full pt-5 pb-20 px-4 md:px-8 border-b">
       <div className="sm:max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What's Inside</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">What's Inside</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl">
             The all in one repo to build the next Billion Dollar Saas
           </p>
         </div>

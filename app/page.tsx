@@ -8,13 +8,17 @@ import { PricingSection } from "@/components/pricing";
 import { FAQSection } from "@/components/faq-section";
 import { FeaturesTab } from "@/components/features-tab-section";
 import { Packages } from "@/components/packages";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <div className="min-h-screen selection:bg-primary selection:text-primary-foreground">
       <Navbar />
-      <main>
+      <main className="mx-auto sm:max-w-6xl border-x">
         <Hero />
+        {/* <div className="flex justify-center border-b bg-red-300">
+          <CopyCode />
+        </div> */}
         <Packages />
         <Stats />
         <FeaturesTab />
@@ -22,8 +26,8 @@ export default function Home() {
         <FAQSection />
         {/* <Testimonials /> */}
         <CTA />
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 }

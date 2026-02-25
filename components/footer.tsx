@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="text-primary-foreground sm:p-10 pt-20 p-5 text-xl">
-      <div className="flex flex-col gap-y-10 max-w-7xl mx-auto bg-primary sm:rounded-4xl rounded-3xl sm:px-10 px-5 pt-10">
+    <footer className="text-primary-foreground text-xl">
+      <div className="flex flex-col gap-y-10 max-w-7xl mx-auto bg-primary sm:px-10 px-5 pt-20">
         {/* Main Content Grid */}
         <div className="flex sm:flex-row flex-col justify-between gap-8 md:gap-16 sm:mb-12 mb-0">
           {/* Header with Logo */}
@@ -38,14 +38,14 @@ export function Footer() {
                   Features
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#example"
                   className="hover:opacity-80 transition-opacity"
                 >
                   Example
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="#pricing"
